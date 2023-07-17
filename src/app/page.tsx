@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export default function Home() {
   return (
-    <>
+    <div className='w-full h-screen'>
       <header className="bg-blue-500">
         <div className="container mx-auto py-8 px-4">
             <h1 className="text-4xl text-white font-bold">Welcome to My Website</h1>
@@ -34,6 +34,6 @@ export default function Home() {
             <p>&copy; 2023 My Website. All rights reserved.</p>
         </div>
     </footer>
-    </>
+    </div>
   )
 }
