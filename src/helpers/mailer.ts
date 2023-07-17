@@ -26,7 +26,9 @@ export const sendEmail = async ({email,emailType,userID}:{email:string,emailType
             from:process.env.NODEMAILER_MAIL_OPTION_FROM_EMAIL,
             to:email,
             subject:emailType === 'VERIFY_EMAIL' ? 'Verify your email' : 'Reset password',
-            html:`<p>Click here <a href="${process.env.DOMAIN}/${emailType === 'VERIFY_EMAIL' ? 'verifyEmail': 'verifyPassword'}?token=${hashedToken}">here<a/> to ${emailType==='VERIFY_EMAIL' ? 'verify your email' : 'reset your password'} </p>`
+            html:`<p>Click here <a href="${process.env.DOMAIN}/${emailType === 'VERIFY_EMAIL' ? 'verifyEmail': 'verifyPassword'}?token=${hashedToken}">here<a/> to ${emailType==='VERIFY_EMAIL' ? 'verify your email' : 'reset your password'} 
+            ${process.env.DOMAIN}
+            </p>`
         }
         //Send email and return mail response
         const mailResponse = await transport.sendMail(mailOption);
